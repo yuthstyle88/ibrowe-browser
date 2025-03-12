@@ -8,13 +8,10 @@ const Log = require('../lib/logging')
 const path = require('path')
 const { spawnSync } = require('child_process')
 const util = require('../lib/util')
-const { copyRecursiveSync } = require('./copyFileToBrave')
 Log.progress('Performing initial checkout of brave-core')
 
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
 const ibroweCoreDir = path.resolve(__dirname, '..', 'src', 'ibrowe')
-const ibroweImages = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'images')
-const ibroweTranslates = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'translates')
 const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
@@ -51,10 +48,6 @@ console.log('Running runApplyPatches')
 Promise.all([
   applyIBrowePatches(),
 ]).then(() => {
-  console.log('Copy images files .')
-  copyRecursiveSync(ibroweImages, braveCoreDir);
-  console.log('Copy Translates files .')
-  copyRecursiveSync(ibroweTranslates, braveCoreDir);
 
   util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
     cwd: braveCoreDir,
