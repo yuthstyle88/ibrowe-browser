@@ -55,10 +55,10 @@
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
+        "branch": "build-android-v1.76.75",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
-        },
-        "tag": "v1.76.75"
+        }
       }
     }
   },
