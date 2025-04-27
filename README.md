@@ -56,7 +56,6 @@ npm install
 # this might take really long to finish depending on internet speed
 
 npm run init
-
 ```
 brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
 brave-core based iOS builds should use `npm run init -- --target_os=ios`
@@ -77,7 +76,6 @@ The default build type is component.
 
 ```
 # start the component build compile
-cd path-to-your-project-folder/src/brave
 npm run build
 ```
 
@@ -150,7 +148,7 @@ brave-browser/src/brave> git checkout -b branch_name
 brave-browser/src/brave> git fetch origin
 brave-browser/src/brave> git checkout [-b] branch_name
 brave-browser/src/brave> npm run sync
-...Updating 2 src...
+...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
 ```
@@ -159,7 +157,7 @@ brave-browser/src/brave> npm run sync
 ```bash
 brave-browser/src/brave> git pull
 brave-browser/src/brave> npm run sync
-...Updating 2 src...
+...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
 ```
@@ -177,7 +175,7 @@ brave-browser/src/brave> git checkout featureB
 brave-browser/src/brave> git pull
 brave-browser/src/brave> cd ../..
 brave-browser> npm run apply_patches
-...Applying 2 src...
+...Applying 2 patches...
 ```
 
 # Enabling third-party APIs:
