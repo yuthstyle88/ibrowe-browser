@@ -1,5 +1,166 @@
 # Changelog
 
+## [1.77.98](https://github.com/brave/brave-browser/releases/tag/v1.77.98)
+
+ - Implemented an exception list for Night Mode. ([#44213](https://github.com/brave/brave-browser/issues/44213))
+ - Improved the performance of searching using URL bar for users with many bookmarks, tabs and history items. ([#43703](https://github.com/brave/brave-browser/issues/43703))
+ - Improved search results filtering and auto-complete when using the URL bar. ([#44842](https://github.com/brave/brave-browser/issues/44842))
+ - Improved cosmetic filtering performance. ([#42530](https://github.com/brave/brave-browser/issues/42530))
+ - Updated default search engine to Yahoo! JAPAN for new installations in Japan region. ([#43311](https://github.com/brave/brave-browser/issues/43311))
+ - Updated Brave Translate to hide "contribution" element in reader mode. ([#44835](https://github.com/brave/brave-browser/issues/44835))
+ - Updated Brave Translate onboarding. ([#44650](https://github.com/brave/brave-browser/issues/44650))
+ - Updated the “Enable Global Privacy Control” settings toggle placement to be at the bottom of the advanced settings page. ([#43690](https://github.com/brave/brave-browser/issues/43690))
+ - [Security] Fixed several issues relating to blob URL spoofing as reported on HackerOne by b4dc4t and frozzipies. ([#43654](https://github.com/brave/brave-browser/issues/43654))
+ - Fixed crash when clearing a large amount of history. ([#44981](https://github.com/brave/brave-browser/issues/44981))
+ - Fixed normal tabs being removed when disabling the “Keep Private Tabs” setting toggle. ([#45350](https://github.com/brave/brave-browser/issues/45350))
+ - Fixed an issue where tabs are not blocking pop-ups after switching from another tab. ([#44419](https://github.com/brave/brave-browser/issues/44419))
+ - Fixed "Default Model View" page not loading under Brave Leo hamburger settings. ([#44072](https://github.com/brave/brave-browser/issues/44072))
+ - Fixed audio continuing to play for users that closed a tab which showed a JavaScript alert. ([#43699](https://github.com/brave/brave-browser/issues/43699))
+ - Fixed “Shred Site Data” not working while using reader mode. ([#43663](https://github.com/brave/brave-browser/issues/43663))
+ - Fixed URL auto-complete issue when using Hindi transliteration keyboard. ([#43270](https://github.com/brave/brave-browser/issues/43270))
+ - Upgraded Chromium to 135.0.7049.84. ([#45297](https://github.com/brave/brave-browser/issues/45297))([Changelog for 135.0.7049.84](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.95..135.0.7049.84?pretty=fuller&n=10000))
+
+## [1.76.77](https://github.com/brave/brave-browser/releases/tag/v1.76.77)
+
+ - Added Brave Translate for page translations. ([#40782](https://github.com/brave/brave-browser/issues/40782))
+ - Added generalization for the model names in Leo chat. ([#44195](https://github.com/brave/brave-browser/issues/44195))
+ - Added warning text in the setting description when user enables “Block all cookies”. ([#42295](https://github.com/brave/brave-browser/issues/42295))
+ - Added the ability to select custom app icons for Brave. ([#43141](https://github.com/brave/brave-browser/issues/43141))
+ - Disabled TLS 1.0 and TLS 1.1 due to versions being deprecated. ([#43819](https://github.com/brave/brave-browser/issues/43819))
+ - Fixed crash when enabling "Open Tabs" syncing. ([#44380](https://github.com/brave/brave-browser/issues/44380))
+ - Fixed parent tab permission pop-ups being shown on child tabs as reported on HackerOne by b4dc4t. ([#44061](https://github.com/brave/brave-browser/issues/44061))
+ - Fixed URL being incorrectly displayed when scanning QR codes as reported on HackerOne by roland_hack. ([#42559](https://github.com/brave/brave-browser/issues/42559))
+ - Fixed text resizing issue for old.reddit.com posts when in Night Mode. ([#43096](https://github.com/brave/brave-browser/issues/43096))
+ - Fixed background color for New Tabs when in Dark Mode. ([#44270](https://github.com/brave/brave-browser/issues/44270))
+ - Fixed clipboard lookups when searching from the URL bar using the Kana Japanese keyboard. ([#42526](https://github.com/brave/brave-browser/issues/42526))
+ - Fixed UI error when comparing cached content blocker rule list versions. ([#44156](https://github.com/brave/brave-browser/issues/44156))
+ - Upgraded Chromium to 134.0.6998.95. ([#44589](https://github.com/brave/brave-browser/issues/44589))([Changelog for 134.0.6998.95](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.98..134.0.6998.95?pretty=fuller&n=10000))
+
+## [1.75.179](https://github.com/brave/brave-browser/releases/tag/v1.75.179)
+
+### Web3
+
+ - Added new updates to the transaction status screen. ([#26146](https://github.com/brave/brave-core/pull/26146))
+ - Added “Speed up” button on wallet transaction status screen. ([#41800](https://github.com/brave/brave-browser/issues/41800))
+ - Added “Cancel Transaction” button on wallet transaction status screen. ([#41799](https://github.com/brave/brave-browser/issues/41799))
+ - Added support for resolving new Unstoppable Domains TLDs. ([#42368](https://github.com/brave/brave-browser/issues/42368))
+
+### General
+
+ - Added new customizable hamburger menu (being rolled out in phases using Griffin starting at 15%). ([#42836](https://github.com/brave/brave-browser/issues/42836))
+ - Added Smart-Proxy and Kill-Switch support for Brave VPN. ([#42275](https://github.com/brave/brave-browser/issues/42275))
+ - Added Shred feature to the contextual menu. ([#42240](https://github.com/brave/brave-browser/issues/42240))
+ - Added support for custom site distillers. ([#40794](https://github.com/brave/brave-browser/issues/40794))
+ - Added brave://ads-internals page for managing ads data. ([#40952](https://github.com/brave/brave-browser/issues/40952))
+ - Added brave://flags/#block-all-cookies-toggle to enable the ability to block all cookies. ([#42061](https://github.com/brave/brave-browser/issues/42061))
+ - Added new ”Store contact information for future broken site reports” toggle under the WebCompat reporter which is enabled by default. ([#40021](https://github.com/brave/brave-browser/issues/40021))
+ - Implemented new version of onboarding flow for United Kingdom and Japan locales. ([#43020](https://github.com/brave/brave-browser/issues/43020))
+ - Implemented 3-second timer before falling back to HTTP when upgrading to HTTPS. ([#42684](https://github.com/brave/brave-browser/issues/42684))
+ - Implemented search for local items saved in Playlist. ([#42437](https://github.com/brave/brave-browser/issues/42437))
+ - Removed external app prompts for “tel:”, “facetime:” and “facetime-audio:” schemes. ([#43065](https://github.com/brave/brave-browser/issues/43065))
+ - Updated the country flag in the “VPN Region Changed” card to be aligned with the heading. ([#41916](https://github.com/brave/brave-browser/issues/41916))
+ - [Security] Fixed issue with notifications pop-up not being displayed when profile is downloaded as reported on HackerOne by b4dc4t. ([#43092](https://github.com/brave/brave-browser/issues/43092))
+ - [Security] Fixed address bar not displaying URL for “about:blank” pages as reported on HackerOne by b4dc4t. ([#43016](https://github.com/brave/brave-browser/issues/43016))
+ - [Security] Fixed “tel:” pop-up not being shown on the correct page as reported on HackerOne by b4dc4t. ([#42986](https://github.com/brave/brave-browser/issues/42986))
+ - Fixed crash when closing tabs in tab view while in landscape orientation. ([#42601](https://github.com/brave/brave-browser/issues/42601))
+ - Fixed issue with content filtering in local frames. ([#40649](https://github.com/brave/brave-browser/issues/40649))
+ - Fixed ads or metadata being shown in YouTube videos intermittently. ([#43454](https://github.com/brave/brave-browser/issues/43454))
+ - Fixed location not being shown in the “VPN Region Changed” card. ([#41915](https://github.com/brave/brave-browser/issues/41915))
+ - Fixed issue with “VPN Region Changed” card getting stuck on screen when quickly navigating out of the settings page. ([#41831](https://github.com/brave/brave-browser/issues/41831))
+ - Fixed the VPN advanced server selection list not being displayed after relaunching Brave. ([#40855](https://github.com/brave/brave-browser/issues/40855))
+ - Fixed losing position of video after exiting Playlist. ([#42620](https://github.com/brave/brave-browser/issues/42620))
+ - Fixed not being able to add new videos in Playlist. ([#41555](https://github.com/brave/brave-browser/issues/41555))
+ - Fixed control labels being shown for the Playlist controls for iOS 16 users. ([#42509](https://github.com/brave/brave-browser/issues/42509))
+ - Fixed issue with video duration not shown correctly in the Playlist drawer view. ([#42569](https://github.com/brave/brave-browser/issues/42569))
+ - Fixed the Leo “suggest questions” button causing UI to be unresponsive when clicked. ([#43366](https://github.com/brave/brave-browser/issues/43366))
+ - Fixed issue where files with the same name couldn't be downloaded multiple times. ([#41284](https://github.com/brave/brave-browser/issues/41284))
+ - Fixed blank screen being displayed when loading “https://dillards.com/” when shields are raised. ([#43286](https://github.com/brave/brave-browser/issues/43286))
+ - Fixed rendering websites in dark mode which set a transparent background color. ([#43214](https://github.com/brave/brave-browser/issues/43214))
+ - Fixed tabs bar disappearing with 2 or more tabs. ([#42272](https://github.com/brave/brave-browser/issues/42272))
+ - Fixed tabs bar not being scrollable for some users. ([#41562](https://github.com/brave/brave-browser/issues/41562))
+ - Fixed Readermode not working intermittently under Brave’s RSS feed. ([#43034](https://github.com/brave/brave-browser/issues/43034))
+ - Fixed screen flashing white when loading content when in Dark/Night mode. ([#42929](https://github.com/brave/brave-browser/issues/42929))
+ - Upgraded Chromium to 133.0.6943.98. ([#43927](https://github.com/brave/brave-browser/issues/43927))([Changelog for 133.0.6943.98](https://chromium.googlesource.com/chromium/src/+log/132.0.6834.83..133.0.6943.98?pretty=fuller&n=10000))
+
+## [1.74.49](https://github.com/brave/brave-browser/releases/tag/v1.74.49)
+
+### Web3
+
+ - Updated 0x "Swap" API to v2. ([#41891](https://github.com/brave/brave-browser/issues/41891))
+
+### General
+
+ - Added the ability to scrub anywhere when playing videos in full screen in Playlist. ([#42442](https://github.com/brave/brave-browser/issues/42442))
+ - Added some system player functionality on the device locked screen including support for play/pause and next/previous track on AirPods. ([#42370](https://github.com/brave/brave-browser/issues/42370))
+ - Updated Yandex as default search engine for Uzbekistan region rather than Tanzania. ([#42023](https://github.com/brave/brave-browser/issues/42023))
+ - Fixed crash in Brave Playlist when adding very short GIF videos. ([#42638](https://github.com/brave/brave-browser/issues/42638))
+ - Fixed subscription status sometimes showing “Monthly Subscription” after purchasing Leo Premium yearly subscription. ([#42507](https://github.com/brave/brave-browser/issues/42507))
+ - Fixed playlist UI not updating when moving, re-ordering or deleting items in player queue. ([#42355](https://github.com/brave/brave-browser/issues/42355))
+ - Fixed playback speed buttons not working in Playlist fullscreen for iPad. ([#41892](https://github.com/brave/brave-browser/issues/41892))
+ - Fixed VPN allowing profile to be installed when subscription is not purchased. ([#41887](https://github.com/brave/brave-browser/issues/41887))
+ - Fixed “Share Private & Anonymous Product Insights” toggle being re-enabled after opening the “Learn more…” hyperlink in the onboarding flow. ([41777](https://github.com/brave/brave-browser/issues/41777))
+ - Fixed “Advanced Settings” in Leo menu not being shown after upgrading app for certain premium subscribers. ([#41579](https://github.com/brave/brave-browser/issues/41579))
+ - Upgraded Chromium to 132.0.6834.83. ([#43183](https://github.com/brave/brave-browser/issues/43183))([Changelog for 132.0.6834.83](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.108..132.0.6834.83?pretty=fuller&n=10000))
+
+## [1.73.97](https://github.com/brave/brave-browser/releases/tag/v1.73.97)
+
+### Web3
+
+ - Improved Solana swap failure rate. ([#42434](https://github.com/brave/brave-browser/issues/42434))
+
+### General
+
+ - Added 7 day trial and annual subscription support for Leo. ([#37961](https://github.com/brave/brave-browser/issues/37961))
+ - Added customization to "Shortcut" button in the toolbar. ([#41031](https://github.com/brave/brave-browser/issues/41031))
+ - Added support for Hebrew, Vietnamese and Thai languages. ([#42181](https://github.com/brave/brave-browser/issues/42181))
+ - Added French, German, Italian and Spanish language support for Leo system prompts. ([#41554](https://github.com/brave/brave-browser/issues/41554))
+ - Added support for procedural cosmetic filtering. ([#16935](https://github.com/brave/brave-browser/issues/16935))
+ - Added “Copy Clean Link” option to the context menu in the URL bar for selected text. ([#41302](https://github.com/brave/brave-browser/issues/41302))
+ - Improved Playlist UI responsiveness by converting some fetch operations to be asynchronous. ([#42501](https://github.com/brave/brave-browser/issues/42501))
+ - Updated the “Edit” button to “Done” when editing custom search engines. ([#39552](https://github.com/brave/brave-browser/issues/39552))
+ - Updated sizing for some icons in the toolbar to be more uniform. ([#41405](https://github.com/brave/brave-browser/issues/41405))
+ - Fixed crash when accessing Leo when feature flag is disabled. ([#42150](https://github.com/brave/brave-browser/issues/42150))
+ - Fixed crash in Leo when sending queries using “REWRITE” options in slash tools. ([#42443](https://github.com/brave/brave-browser/issues/42443))
+ - Fixed crash when purchasing Leo subscription after VPN is purchased. ([#42268](https://github.com/brave/brave-browser/issues/42268))
+ - Fixed Playlist crashing in the background due to excessive CPU usage. ([#42408](https://github.com/brave/brave-browser/issues/42408))
+ - Fixed Playlist items not deleting due to having invalid cache. ([#41252](https://github.com/brave/brave-browser/issues/41252))
+ - Fixed not being able to re-order Playlist items when users have multiple folders. ([#42318](https://github.com/brave/brave-browser/issues/42318))
+ - Fixed a leak resulting in two Playlist items playing at once in the background. ([#42344](https://github.com/brave/brave-browser/issues/42344))
+ - Fixed Playlist audio being paused momentarily when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
+ - Fixed URL being opened in normal tab first when choosing "Open In New Private Tab" via long-press context menu in Playlist. ([#42357](https://github.com/brave/brave-browser/issues/42357))
+ - Fixed VPN Region shortcut to update the active region when changing servers. ([#41051](https://github.com/brave/brave-browser/issues/41051))
+ - Fixed opening bookmarks via the URL bar searches for the website via default search engine rather than directly opening the bookmarked website. ([#41910](https://github.com/brave/brave-browser/issues/41910))
+ - Fixed HTTP scheme being shown when loading insecure websites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
+ - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
+ - Fixed generic cosmetic filter list rules not being applied on certain websites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
+ - Fixed Night Mode not working on sites such as https://community.brave.com and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
+ - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
+
+## [1.71.125](https://github.com/brave/brave-browser/releases/tag/v1.71.125)
+
+### Web3
+
+ - Added support for resolving new UD TLDs. ([#40543](https://github.com/brave/brave-browser/issues/40543))
+ - Fixed inability to send any non-compressed Solana NFT from Brave Wallet. ([#40424](https://github.com/brave/brave-browser/issues/40424))
+
+### General
+
+ - Implemented local vector search for the selection of key text segments of page and video context in Brave Leo. ([#36801](https://github.com/brave/brave-browser/issues/36801))
+ - Added support for running Brave in compatibility mode on VisionOS. ([#40579](https://github.com/brave/brave-browser/issues/40579))
+ - Added Italy and Argentina support for Brave News. ([#40996](https://github.com/brave/brave-browser/issues/40996))
+ - Added ability to cancel action when deleting all history. ([#41148](https://github.com/brave/brave-browser/issues/41148))
+ - Added support for editing Leo responses in chat. ([#40208](https://github.com/brave/brave-browser/issues/40208))
+ - Added additional locale support to Top News Widgets. ([#40298](https://github.com/brave/brave-browser/issues/40298))
+ - Removed known tracking parameter "_bhlid" from URLs. ([#40716](https://github.com/brave/brave-browser/issues/40716))
+ - Removed known tracking parameter "srsltid" from URLs. ([#40912](https://github.com/brave/brave-browser/issues/40912))
+ - [Security] Fixed Reader mode leaking meta data to cross-origin image URLs as reported on HackerOne by newfunction. ([#41444](https://github.com/brave/brave-browser/issues/41444))
+ - Updated Playlist UI. ([#40911](https://github.com/brave/brave-browser/issues/40911))
+ - Fixed crash when requesting media permissions on certain websites. ([#41639](https://github.com/brave/brave-browser/issues/41639))
+ - Fixed crash when loading bundled favicon in certain cases. ([#41697](https://github.com/brave/brave-browser/issues/41697))
+ - Fixed crash in Playlist when deleting offline data. ([#41232](https://github.com/brave/brave-browser/issues/41232))
+ - Fixed crash when loading interstitial pages in certain cases. ([#42162](https://github.com/brave/brave-browser/issues/42162))
+ - Fixed “Refresh your credentials” button not working intermittently for premium users. ([#38086](https://github.com/brave/brave-browser/issues/38086))
+ - Upgraded Chromium to 130.0.6723.116. ([#42088](https://github.com/brave/brave-browser/issues/42088))([Changelog for 130.0.6723.116](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.100..130.0.6723.116?pretty=fuller&n=10000))
 
 ## [1.70.133](https://github.com/brave/brave-browser/releases/tag/v1.70.133)
 
