@@ -1,18 +1,18 @@
 {
-  "name": "ibrowe",
-  "version": "1.0.2",
-  "description": "Next generation iBrowe browser for macOS, Windows, Linux, and Android",
-  "homepage": "https://github.com/yuthstyle88/brave-browser#readme",
+  "name": "brave",
+  "version": "1.77.101",
+  "description": "Next generation Brave browser for macOS, Windows, Linux, and Android",
+  "homepage": "https://github.com/brave/brave-browser#readme",
   "bugs": {
-    "url": "https://github.com/yuthstyle88/brave-browser/issues"
+    "url": "https://github.com/brave/brave-browser/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuthstyle88/brave-browser.git"
+    "url": "git+https://github.com/brave/brave-browser.git"
   },
   "license": "MPL-2.0",
   "author": {
-    "name": "Brave Software <support@brave.com>, iBrowe Software <support@ibrowe.com>"
+    "name": "Brave Software <support@brave.com>"
   },
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
@@ -49,18 +49,10 @@
           "url": "https://github.com/brave/brave-core.git"
         },
         "tag": "v1.77.101"
-      },
-      "ibrowe-core": {
-        "dir": "src/ibrowe",
-        "repository": {
-          "url": "https://github.com/yuthstyle88/ibrowe-core.git"
-        },
-        "branch": "v1.77.101"
       }
     }
   },
   "dependencies": {
-    "chalk": "4.1.2",
-    "fs-extra": "^11.3.0"
+    "chalk": "4.1.2"
   }
 }
