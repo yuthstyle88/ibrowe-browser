@@ -53,7 +53,7 @@
         "tag": "v1.77.101"
       },
       "ibrowe-core": {
-        "dir": "src/ibrowei",
+        "dir": "src/ibrowe",
         "tag": "v1.77.101",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
