@@ -50,14 +50,14 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.76.75"
+        "tag": "v1.77.101"
       },
       "ibrowe-core": {
-        "dir": "src/ibrowe",
+        "dir": "src/ibrowei",
+        "tag": "v1.77.101",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
-        },
-        "tag": "v1.76.75"
+        }
       }
     }
   },
