@@ -42,6 +42,11 @@ if (process.platform === 'win32') {
   npmCommand += '.cmd'
 }
 util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+
+// Copy files from ibrowe to brave directory
+Log.progress('Copying files from ibrowe to brave directory...')
+util.copyFileToBrave(path.resolve(__dirname, '..', 'src'))
+
 //Load after clone brave core
 const { applyIBrowePatches } = require('./applyIBrowePatches')
 console.log('Running runApplyPatches')
@@ -59,5 +64,3 @@ Promise.all([
     .catch(err => {
       console.error('Error apply patch files:')
       console.error(err)})
-
-
