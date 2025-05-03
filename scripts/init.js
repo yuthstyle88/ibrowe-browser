@@ -48,6 +48,12 @@ Log.progress('Copying files from ibrowe to brave directory...')
 util.copyFileToBrave(path.resolve(__dirname, '..', 'src'))
 
 //Load after clone brave core
+const copyFileToBravePath = path.resolve(__dirname, '..', 'src', 'ibrowe', 'scripts', 'copyFileToBrave.js')
+const { copyFileToBrave } = require(copyFileToBravePath)
+console.log('Running copyFileToBrave')
+
+copyFileToBrave()
+
 const { applyIBrowePatches } = require('./applyIBrowePatches')
 console.log('Running runApplyPatches')
 Promise.all([
