@@ -43,10 +43,6 @@ if (process.platform === 'win32') {
 }
 util.run(npmCommand, ['install'], { cwd: braveCoreDir })
 
-// Copy files from ibrowe to brave directory
-Log.progress('Copying files from ibrowe to brave directory...')
-util.copyFileToBrave(path.resolve(__dirname, '..', 'src'))
-
 //Load after clone brave core
 const copyFileToBravePath = path.resolve(__dirname, '..', 'src', 'ibrowe', 'scripts', 'copyFileToBrave.js')
 const { copyFileToBrave } = require(copyFileToBravePath)
