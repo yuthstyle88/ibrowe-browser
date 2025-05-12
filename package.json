@@ -15,7 +15,6 @@
     "name": "Brave Software <support@brave.com>, iBrowe Software <support@ibrowe.com>"
   },
   "scripts": {
-    "apply_patches_ibrowe": "node scripts/generatePatches.js",
     "apply_patches": "cd src/brave && npm run apply_patches --",
     "generate_patches": "node ./scripts/generatePatches.js",
     "apply_ibrowe_patches": "node ./scripts/applyNewPatches.js",
