@@ -16,8 +16,7 @@
   },
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
-    "generate_patches": "node ./scripts/generatePatches.js",
-    "apply_ibrowe_patches": "node ./scripts/applyNewPatches.js",
+    "update_patches_ibrowe": "node ./scripts/updatePatches.js",
     "audit_deps": "cd src/brave && npm run audit_deps --",
     "build": "cd src/brave && npm run build --",
     "chromium_rebase_l10n": "cd src/brave && npm run chromium_rebase_l10n --",
