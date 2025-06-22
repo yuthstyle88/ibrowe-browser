@@ -49,11 +49,11 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.77.101"
+        "tag": "v1.79.126"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
-        "tag": "v1.77.101",
+        "branch": "v1.79.126",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
@@ -61,7 +61,6 @@
     }
   },
   "dependencies": {
-    "chalk": "4.1.2",
-    "fs-extra": "^11.3.0"
+    "chalk": "4.1.2"
   }
 }

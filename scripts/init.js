@@ -53,7 +53,7 @@ copyFileToBrave()
 const { applyIBrowePatches } = require('./applyIBrowePatches')
 console.log('Running runApplyPatches')
 Promise.all([
-  applyIBrowePatches(),
+  // applyIBrowePatches(),
 ]).then(() => {
 
   util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {

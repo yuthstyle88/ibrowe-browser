@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs-extra');
+const fs = require('fs')
 const config = require('../src/brave/build/commands/lib/config')
 
 async function applyIBrowePatches() {
