@@ -1,13 +1,13 @@
-// Copyright (c) 2025 The iBrowe Authors. All rights reserved.
-// This Source Code Form is subject to the terms of the Mozilla Public
-// License, v. 2.0. If a copy of the MPL was not distributed with this file,
-// you can obtain one at http://mozilla.org/MPL/2.0/.
+// Copyright (c) 2025 The iBrowe Authors.
+// Licensed under the Mozilla Public License v2.0
 
 const fs = require('fs')
-const Log = require('../lib/logging')
 const path = require('path')
 const { spawnSync } = require('child_process')
+
+const Log = require('../lib/logging')
 const util = require('../lib/util')
+
 Log.progress('Performing initial checkout of brave-core')
 
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
@@ -15,57 +15,98 @@ const ibroweCoreDir = path.resolve(__dirname, '..', 'src', 'ibrowe')
 const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
-
-
+// Clone ibrowe-core if needed
 if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
-  fs.mkdirSync(ibroweCoreDir)
-  util.runGit(ibroweCoreDir, ['clone', util.getNPMConfig(['projects', 'ibrowe-core', 'repository', 'url']), '.'])
+  Log.status(`Cloning ibrowe-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
+  fs.mkdirSync(ibroweCoreDir, { recursive: true })
+  util.runGit(ibroweCoreDir, [
+    'clone',
+    util.getNPMConfig(['projects', 'ibrowe-core', 'repository', 'url']),
+    '.',
+  ])
   util.runGit(ibroweCoreDir, ['checkout', ibroweCoreRef])
 }
 
+// Clone brave-core if needed
 if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
   Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
-  fs.mkdirSync(braveCoreDir)
-  util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
+  fs.mkdirSync(braveCoreDir, { recursive: true })
+  util.runGit(braveCoreDir, [
+    'clone',
+    util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']),
+    '.',
+  ])
   util.runGit(braveCoreDir, ['checkout', braveCoreRef])
 }
 
+// Log current commit SHAs
 const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
 Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
 
 const ibroweSha = util.runGit(ibroweCoreDir, ['rev-parse', 'HEAD'])
 Log.progress(`ibrowe-core repo at ${ibroweCoreDir} is at commit ID ${ibroweSha}`)
-console.log('Running npm install in ibrowe-core...')
+
+// Run npm install
+console.log('Running npm install in brave-core...')
 let npmCommand = 'npm'
 if (process.platform === 'win32') {
   npmCommand += '.cmd'
 }
-util.run(npmCommand, ['install'], { cwd: braveCoreDir })
 
-const copyFileToBravePath = path.resolve(__dirname, '..', 'src', 'ibrowe', 'scripts', 'copyFileToBrave.js')
+const result = spawnSync(npmCommand, ['install'], {
+  cwd: braveCoreDir,
+  stdio: 'inherit',
+  shell: true
+})
+
+if (result.error) {
+  console.error('Failed to run npm install:', result.error)
+  process.exit(1)
+}
+if (result.status !== 0) {
+  console.error(`npm install exited with code ${result.status}`)
+  process.exit(result.status)
+}
+
+// Load and run custom file copy
+console.log('Running copyFileToBrave...')
+const copyFileToBravePath = path.resolve(
+    __dirname,
+    '..',
+    'src',
+    'ibrowe',
+    'scripts',
+    'copyFileToBrave.js'
+)
 const { copyFileToBrave } = require(copyFileToBravePath)
-console.log('Running copyFileToBrave')
-
 copyFileToBrave()
 
-//Load after clone brave core
+// Apply patches
+console.log('Running runApplyPatches...')
 const { applyIBrowePatches } = require('./applyIBrowePatches')
-console.log('Running runApplyPatches')
-Promise.all([
-  // applyIBrowePatches(),
-]).then(() => {
 
-  util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-    cwd: braveCoreDir,
-    env: process.env,
-    stdio: 'inherit',
-    shell: true,
-    git_cwd: '.', })
-})
-    .catch(err => {
-      console.error('Error apply patch files:')
-      console.error(err)})
+applyIBrowePatches()
+    .then(() => {
+      // Final sync step
+      console.log('Running npm run sync -- --init')
+      const syncResult = spawnSync(npmCommand, ['run', 'sync', '--', '--init', ...process.argv.slice(2)], {
+        cwd: braveCoreDir,
+        env: process.env,
+        stdio: 'inherit',
+        shell: true
+      })
 
-
-
+      if (syncResult.error) {
+        console.error('Failed to run npm run sync:', syncResult.error)
+        process.exit(1)
+      }
+      if (syncResult.status !== 0) {
+        console.error(`npm run sync exited with code ${syncResult.status}`)
+        process.exit(syncResult.status)
+      }
+    })
+    .catch((err) => {
+      console.error('Error applying patch files:')
+      console.error(err)
+      process.exit(1)
+    })
