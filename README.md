@@ -1,9 +1,9 @@
 > ⚠️ **License Notice**  
 > This project is a fork of the Brave Browser, and inherits parts of its structure, scripts, and patching system.  
 > While certain files and build logic remain under Brave's original license, all iBrowe-specific modifications, branding, and components are distributed under the [iBrowe License](./LICENSE-IBROWE).  
-> Please refer to individual file headers and the LICENSE-IBROWE file for usage restrictions and redistribution rights.  
+> Please refer to individual file headers and the LICENSE-IBROWE file for usage restrictions and redistribution rights.
 
-![iBrowe Browser](./docs/source/_static/Brave.svg)
+![iBrowe Browser](./docs/source/_static/iBrowe.svg)
 
 ## Overview
 
