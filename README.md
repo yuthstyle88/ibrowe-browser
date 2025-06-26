@@ -12,7 +12,7 @@ This repository holds the build tools needed to build the Brave desktop browser 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
     - Fetches code via `depot_tools`.
     - Sets the branch for Chromium (ex: 65.0.3325.181).
-  - [ibrowe-core](https://github.com/brave/brave-core)
+  - [ibrowe-core](https://github.com/yuthstyle88/ibrowe-core)
     - Mounted at `src/ibrowe-core`.
     - Maintains patches for 3rd party Chromium code.
   - [adblock-rust](https://github.com/brave/adblock-rust)
@@ -21,7 +21,7 @@ This repository holds the build tools needed to build the Brave desktop browser 
 
 ## Downloads
 
-You can [visit our website](https://brave.com/download) to get the latest stable release.
+You can [visit our website](https://ibrowe.com/download) to get the latest stable release.
 
 ## Contributing
 
@@ -31,22 +31,22 @@ Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful tec
 
 ## Community
 
-[Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
-[discuss features you'd like to see](https://community.brave.com/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
+[Join the Q&A community](https://community.ibrowe.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.ibrowe.com/c/support-and-troubleshooting),
+[discuss features you'd like to see](https://community.ibrowe.com/c/ibrowe-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
 
-Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
+Help us translate Brave to your language by submitting translations at https://explore.transifex.com/ibrowe/ibrowe_en/.
 
-Follow [@ibrowe](https://x.com/brave) on X for important news and announcements.
+Follow [@ibrowe](https://x.com/ibrowe) on X for important news and announcements.
 
 ## Install prerequisites
 
 Follow the instructions for your platform:
 
-- [macOS](https://github.com/brave/brave-browser/wiki/macOS-Development-Environment)
-- [iOS](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment)
-- [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
-- [Linux](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
-- [Android](https://github.com/brave/brave-browser/wiki/Android-Development-Environment)
+- [macOS](https://github.com/yuthstyle88/ibrowe-browser/wiki/macOS-Development-Environment)
+- [iOS](https://github.com/yuthstyle88/ibrowe-browser/wiki/iOS-Development-Environment)
+- [Windows](https://github.com/yuthstyle88/ibrowe-browser/wiki/Windows-Development-Environment)
+- [Linux](https://github.com/yuthstyle88/ibrowe-browser/wiki/Linux-Development-Environment)
+- [Android](https://github.com/yuthstyle88/ibrowe-browser/wiki/Android-Development-Environment)
 
 ## Clone and initialize the repo
 
@@ -95,7 +95,7 @@ npm run build Release
 
 brave-core based android builds should use `npm run build -- --target_os=android --target_arch=arm` or set the npm config variables as specified above for `init`
 
-brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
+brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/yuthstyle88/ibrowe-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
 
 ### Build Configurations
 
@@ -193,8 +193,8 @@ brave-browser> npm run apply_patches
 
 - [Security rules from Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/rules.md)
 - [IPC review guidelines](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/security/ipc-reviews.md) (in particular [this reference](https://docs.google.com/document/d/1Kw4aTuISF7csHnjOpDJGc7JYIjlvOAKRprCTBVWw_E4/edit#heading=h.84bpc1e9z1bg))
-- [Brave's internal security guidelines](https://github.com/brave/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
-- [Rust usage](https://github.com/brave/brave-core/blob/master/docs/rust.md)å
+- [Brave's internal security guidelines](https://github.com/yuthstyle88/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
+- [Rust usage](https://github.com/yuthstyle88/ibrowe-core/blob/master/docs/rust.md)å
 
 # Troubleshooting
 
