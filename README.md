@@ -1,4 +1,9 @@
-![Brave Browser](./docs/source/_static/Brave.svg)
+> ⚠️ **License Notice**  
+> This project is a fork of the Brave Browser, and inherits parts of its structure, scripts, and patching system.  
+> While certain files and build logic remain under Brave's original license, all iBrowe-specific modifications, branding, and components are distributed under the [iBrowe License](./LICENSE-IBROWE).  
+> Please refer to individual file headers and the LICENSE-IBROWE file for usage restrictions and redistribution rights.  
+
+![iBrowe Browser](./docs/source/_static/Brave.svg)
 
 ## Overview
 
@@ -7,8 +12,8 @@ This repository holds the build tools needed to build the Brave desktop browser 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
     - Fetches code via `depot_tools`.
     - Sets the branch for Chromium (ex: 65.0.3325.181).
-  - [brave-core](https://github.com/brave/brave-core)
-    - Mounted at `src/brave`.
+  - [ibrowe-core](https://github.com/brave/brave-core)
+    - Mounted at `src/ibrowe-core`.
     - Maintains patches for 3rd party Chromium code.
   - [adblock-rust](https://github.com/brave/adblock-rust)
     - Implements Brave's ad-block engine.
@@ -31,7 +36,7 @@ Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful tec
 
 Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
 
-Follow [@brave](https://x.com/brave) on X for important news and announcements.
+Follow [@ibrowe](https://x.com/brave) on X for important news and announcements.
 
 ## Install prerequisites
 
@@ -68,9 +73,9 @@ npm config set target_os android
 npm config set target_arch arm
 ```
 
-Additional parameters needed to build are documented at https://github.com/brave/brave-browser/wiki/Build-configuration
+Additional parameters needed to build are documented at https://github.com/yuthstyle88/ibrowe-browser/wiki/Build-configuration
 
-Internal developers can find more information at https://github.com/brave/devops/wiki/%60.env%60-config-for-Brave-Developers
+Internal developers can find more information at https://github.com/yuthstyle88/devops/wiki/%60.env%60-config-for-iBrowe-Developers
 
 ## Build Brave
 The default build type is component.
@@ -189,8 +194,18 @@ brave-browser> npm run apply_patches
 - [Security rules from Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/rules.md)
 - [IPC review guidelines](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/security/ipc-reviews.md) (in particular [this reference](https://docs.google.com/document/d/1Kw4aTuISF7csHnjOpDJGc7JYIjlvOAKRprCTBVWw_E4/edit#heading=h.84bpc1e9z1bg))
 - [Brave's internal security guidelines](https://github.com/brave/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
-- [Rust usage](https://github.com/brave/brave-core/blob/master/docs/rust.md)
+- [Rust usage](https://github.com/brave/brave-core/blob/master/docs/rust.md)å
 
 # Troubleshooting
 
 See [Troubleshooting](https://github.com/brave/brave-browser/wiki/Troubleshooting) for solutions to common problems.
+
+---
+
+## License & Attribution Notice
+
+iBrowe is an independent browser project forked from Brave Browser, which is licensed under the Mozilla Public License 2.0 (MPL-2.0). This project inherits certain architectural elements, scripts, and build mechanisms from Brave.
+
+Some references to Brave (such as URLs like `brave.com`, `brave://`, or `github.com/brave`) may still remain in the codebase due to its upstream origin. These will be reviewed and replaced progressively.
+
+iBrowe is not affiliated with Brave Software, Inc. All iBrowe-specific modifications, branding, and components are covered under the [iBrowe License](./LICENSE-IBROWE).

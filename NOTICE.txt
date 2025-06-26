@@ -1,0 +1,16 @@
+
+
+NOTICE
+=======
+
+iBrowe is an independent browser project forked from the Brave Browser (https://brave.com), which is licensed under the Mozilla Public License Version 2.0 (MPL-2.0).
+
+Portions of this project contain code and configuration files from Brave Browser, including scripts, build infrastructure, and Chromium integration logic. These elements remain under the MPL-2.0 license.
+
+iBrowe-specific code, branding assets, and additional components are covered under the LICENSE-IBROWE file.
+
+Brave is a trademark of Brave Software, Inc.
+Chromium is a trademark of Google Inc.
+iBrowe is not affiliated with Brave Software, Inc. or Google Inc.
+
+See the LICENSE and LICENSE-IBROWE files for full licensing information.

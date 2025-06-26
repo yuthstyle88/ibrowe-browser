@@ -1,3 +1,12 @@
+iBrowe License Notice
+======================
+
+This project, iBrowe, is a fork of the Brave Browser, which is distributed under the Mozilla Public License Version 2.0 (MPL-2.0).
+Portions of this codebase remain under the MPL-2.0 as required. All modifications, new components, and branding introduced
+by the iBrowe project are provided under the LICENSE-IBROWE file, unless otherwise specified in individual source files.
+
+iBrowe is not affiliated with Brave Software, Inc. See LICENSE-IBROWE for terms specific to iBrowe modifications.
+
 Mozilla Public License Version 2.0
 ==================================
 
