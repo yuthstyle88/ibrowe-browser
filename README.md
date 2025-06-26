@@ -27,7 +27,7 @@ You can [visit our website](https://ibrowe.com/download) to get the latest stabl
 
 Please see the [contributing guidelines](./CONTRIBUTING.md).
 
-Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful technical information.
+Our [Wiki](https://github.com/yuthstyle88/ibrowe-browser/wiki) also has some useful technical information.
 
 ## Community
 
