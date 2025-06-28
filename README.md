@@ -32,9 +32,9 @@ Our [Wiki](https://github.com/yuthstyle88/ibrowe-browser/wiki) also has some use
 ## Community
 
 [Join the Q&A community](https://community.ibrowe.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.ibrowe.com/c/support-and-troubleshooting),
-[discuss features you'd like to see](https://community.ibrowe.com/c/ibrowe-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
+[discuss features you'd like to see](https://community.ibrowe.com/c/ibrowe-feature-requests), and a lot more. We'd love to have your help so that we can continue improving iBrowe.
 
-Help us translate Brave to your language by submitting translations at https://explore.transifex.com/ibrowe/ibrowe_en/.
+Help us translate iBrowe to your language by submitting translations at https://explore.transifex.com/ibrowe/ibrowe_en/.
 
 Follow [@ibrowe](https://x.com/ibrowe) on X for important news and announcements.
 
@@ -77,11 +77,11 @@ Additional parameters needed to build are documented at https://github.com/yuths
 
 Internal developers can find more information at https://github.com/yuthstyle88/devops/wiki/%60.env%60-config-for-iBrowe-Developers
 
-## Build Brave
+## Build iBrowe
 The default build type is component.
 
 ```
-# start the component build compile
+# start the iBrowe component build compile
 cd path-to-your-project-folder/src/brave
 npm run build
 ```
@@ -89,7 +89,7 @@ npm run build
 To do a release build:
 
 ```
-# start the release compile
+# start the iBrowe release compile
 npm run build Release
 ```
 
@@ -114,12 +114,12 @@ npm run build -- Debug
 ```
 NOTE: the build will take a while to complete. Depending on your processor and memory, it could potentially take a few hours.
 
-## Run Brave
+## Run iBrowe
 To start the build:
 
 `npm start [Release|Component|Static|Debug]`
 
-# Update Brave
+# Update iBrowe
 
 `npm run sync -- [--force] [--init] [--create] [brave_core_ref]`
 
