@@ -12,7 +12,7 @@ async function generateFilteredPatches() {
             '.grd', '.grdp', '.xtb', '.pak', '.strings',
             // Images
             '.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp',
-            '.svg', '.bmp', '.tiff', '.avif', '.icns' // Includes .icns
+            '.svg', '.bmp', '.tiff', '.avif', '.icns', '.aar' // Includes .icns
         ],
 
         // File name patterns to filter
@@ -98,7 +98,7 @@ async function generateFilteredPatches() {
 
     try {
         console.log('Starting patch generation with filters...');
-        await updatePatches(braveDir, patchesDir, repoPathFilter);
+        await updatePatches(braveDir, patchesDir, [], repoPathFilter);
         console.log('Successfully generated filtered patches');
     } catch (err) {
         console.error('Error generating patches:', err);
