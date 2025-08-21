@@ -55,7 +55,7 @@
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
-        "tag": "v1.81.135",
+        "brarch": "v1.81.135",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
