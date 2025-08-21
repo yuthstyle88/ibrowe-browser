@@ -18,7 +18,7 @@ const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
 
 if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
+  Log.status(`Cloning ibrowe-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
   fs.mkdirSync(ibroweCoreDir)
   util.runGit(ibroweCoreDir, ['clone', util.getNPMConfig(['projects', 'ibrowe-core', 'repository', 'url']), '.'])
   util.runGit(ibroweCoreDir, ['checkout', ibroweCoreRef])
