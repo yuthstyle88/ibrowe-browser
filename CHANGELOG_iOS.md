@@ -1,5 +1,50 @@
 # Changelog
 
+## [1.80.121](https://github.com/brave/brave-browser/releases/tag/v1.80.121)
+
+ - Fixed sync related crash when browser is launched. ([#47375](https://github.com/brave/brave-browser/issues/47375))
+ - Upgraded Chromium to 138.0.7204.101. ([#47476](https://github.com/brave/brave-browser/issues/47476))([Changelog for 138.0.7204.101](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.97..138.0.7204.101?pretty=fuller&n=10000))
+
+## [1.80.116](https://github.com/brave/brave-browser/releases/tag/v1.80.116)
+
+ - Added "Recently Closed Tabs” section to History UI. ([#45679](https://github.com/brave/brave-browser/issues/45679))
+ - Added eTLD+1 extension on URL and baseDomain improvements. ([#44214](https://github.com/brave/brave-browser/issues/44214))
+ - Enabled new onboarding UI for all regions. ([#47061](https://github.com/brave/brave-browser/issues/47061))
+ - Dropped support for iOS 16. ([#45702](https://github.com/brave/brave-browser/issues/45702))
+ - Removed “Show in Address Bar” preference from Leo settings. ([#47091](https://github.com/brave/brave-browser/issues/47091))
+ - Updated Playlist UI by replacing seek interval with previous/next buttons in the main controls. ([#46104](https://github.com/brave/brave-browser/issues/46104))
+ - [Security] Fixed launching external app links with Chromium Web Views enabled as reported on HackerOne by syarif07. ([#46854](https://github.com/brave/brave-browser/issues/46854))
+ - [Security] Fixed URL bar text not being reverted in certain cases when a new frame is loaded as reported on HackerOne by frozzipies. ([#47107](https://github.com/brave/brave-browser/issues/47107))
+ - Fixed quick searches accessed via search history opening the incorrect search engine. ([#45384](https://github.com/brave/brave-browser/issues/45384))
+ - Fixed “Original Text” string being shown when using Translate on https://api-dashboard.search.brave.com/app/documentation/web-search/get-started with Reader Mode enabled. ([#46446](https://github.com/brave/brave-browser/issues/46446))
+ - Fixed “:matches-path()” type selector hiding the entire webpage when used in the beginning of a procedural filter script. ([#46220](https://github.com/brave/brave-browser/issues/46220))
+ - Fixed "Chinese, Simplified" and "Chinese, Traditional" providing the exact same translation for websites. ([#45946](https://github.com/brave/brave-browser/issues/45946))
+ - Fixed tabs being opened in private mode when launching a new Private Window. ([#45827](https://github.com/brave/brave-browser/issues/45827))
+ - Fixed issue where Leo is allowed to be launched via the Shortcut button when private browsing. ([#46423](https://github.com/brave/brave-browser/issues/46423))
+ - Fixed the suggestion sections in the omnibox being blocked by the keyboard. ([#45803](https://github.com/brave/brave-browser/issues/45803))
+ - Fixed URLs with “blob” or “data” schemes not opening if triggered as pop-up using window.open. ([#45647](https://github.com/brave/brave-browser/issues/45647))
+ - Upgraded Chromium to 138.0.7204.97. ([#47276](https://github.com/brave/brave-browser/issues/47276))([Changelog for 138.0.7204.97](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.104..138.0.7204.97?pretty=fuller&n=10000))
+
+## [1.79.124](https://github.com/brave/brave-browser/releases/tag/v1.79.124)
+
+ - Added search omnibox UI upgrades. ([#44257](https://github.com/brave/brave-browser/issues/44257))
+ - Added "Deepseek R1" model to Leo for premium users. ([#45454](https://github.com/brave/brave-browser/issues/45454))
+ - Updated procedural filtering to be applied on mutated elements. ([#46046](https://github.com/brave/brave-browser/issues/46046)), ([#46358](https://github.com/brave/brave-browser/issues/46358))
+ - Updated procedural filtering being applied to mutated elements with dynamically added child elements. ([#46208](https://github.com/brave/brave-browser/issues/46208))
+ - [Security] Fixed share sheet title showing two URLs instead of one as reported on HackerOne by severusstalin. ([#46178](https://github.com/brave/brave-browser/issues/46178))
+ - Fixed crash occurring when files are being downloaded for users using iOS 16.0-16.3. ([#46682](https://github.com/brave/brave-browser/issues/46682))
+ - Fixed the order in the Quick-Search engine scroll view being offset when Leo is disabled. ([#46421](https://github.com/brave/brave-browser/issues/46421))
+ - Fixed downloads failing to start when triggered in a new tab. ([#46323](https://github.com/brave/brave-browser/issues/46323))
+ - Fixed the translate button being shown on webpages with invalid languages. ([#45779](https://github.com/brave/brave-browser/issues/45779))
+ - Fixed an issue for iPad users where the Shortcut button was not being hidden. ([#45612](https://github.com/brave/brave-browser/issues/45612))
+ - Fixed articles not being loaded when tapping on the Brave News widget thumbnail. ([#45609](https://github.com/brave/brave-browser/issues/45609))
+ - Fixed og:image meta data from being requested for all sites. ([#45268](https://github.com/brave/brave-browser/issues/45268))
+ - Fixed playback time in Playlist displaying incorrectly for longer videos. ([#45033](https://github.com/brave/brave-browser/issues/45033))
+ - Fixed Japanese videos that contain Japanese titles failing to save offline in Playlist. ([#46236](https://github.com/brave/brave-browser/issues/46236))
+ - Fixed tabs being incorrectly switched to either Normal or Private mode when using Shred. ([#45001](https://github.com/brave/brave-browser/issues/45001))
+ - Fixed New Tab Page (NTP) background images not being loaded immediately when switching tabs. ([#46379](https://github.com/brave/brave-browser/issues/46379))
+ - Upgraded Chromium to 137.0.7151.104. ([#46712](https://github.com/brave/brave-browser/issues/46712))([Changelog for 137.0.7151.104](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.113..137.0.7151.104?pretty=fuller&n=10000))
+
 ## [1.78.104](https://github.com/brave/brave-browser/releases/tag/v1.78.104)
 
  - Fixed script blocking affecting other websites when enabled in shields panel for particular webpage. ([#46155](https://github.com/brave/brave-browser/issues/46155))
@@ -162,7 +207,7 @@
  - Fixed HTTP scheme being shown when loading insecure websites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
  - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
  - Fixed generic cosmetic filter list rules not being applied on certain websites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
- - Fixed Night Mode not working on sites such as https://community.brave.com and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
+ - Fixed Night Mode not working on sites such as https://community.brave.app and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
  - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
 
 ## [1.71.125](https://github.com/brave/brave-browser/releases/tag/v1.71.125)
