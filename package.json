@@ -2,21 +2,23 @@
   "name": "ibrowe",
   "version": "0.0.2",
   "description": "Next generation iBrowe browser for macOS, Windows, Linux, and Android",
-  "homepage": "https://github.com/yuthstyle88/brave-browser#readme",
+  "homepage": "https://github.com/yuthstyle88/ibrowe-browser#readme",
   "bugs": {
-    "url": "https://github.com/yuthstyle88/brave-browser/issues"
+    "url": "https://github.com/yuthstyle88/ibrowe-browser/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuthstyle88/brave-browser.git"
+    "url": "git+https://github.com/yuthstyle88/ibrowe-browser.git"
   },
   "license": "MPL-2.0",
   "author": {
-    "name": "Brave Software <support@brave.com>, iBrowe Software <support@ibrowe.com>"
+    "name": "iBrowe Software <support@ibrowe.com>"
   },
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
     "update_patches_ibrowe": "node ./scripts/updatePatches.js",
+    "copy_file_to_brave": "node ./scripts/copyFileToBrave.js",
+    "copy_file_to_ibrowe": "node ./scripts/copyFileToiBrowe.js",
     "audit_deps": "cd src/brave && npm run audit_deps --",
     "build": "cd src/brave && npm run build --",
     "chromium_rebase_l10n": "cd src/brave && npm run chromium_rebase_l10n --",
@@ -49,11 +51,11 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.77.101"
+        "tag": "v1.81.136"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
-        "tag": "v1.77.101",
+        "branch": "v1.81.136",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
