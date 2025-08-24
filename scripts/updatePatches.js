@@ -57,25 +57,21 @@ async function generateFilteredPatches() {
         // 1. Check extensions
         const ext = path.extname(normalizedPath).toLowerCase();
         if (excludeConfig.extensions.includes(ext)) {
-            console.log(`Filtering out file by extension: ${filePath}`);
             return false;
         }
 
         // 2. Check patterns
         if (excludeConfig.patterns.some(pattern => normalizedPath.toLowerCase().includes(pattern))) {
-            console.log(`Filtering out file by pattern match: ${filePath}`);
             return false;
         }
 
         // 3. Check exact file names
         if (excludeConfig.exactNames.includes(fileNameWithoutExt)) {
-            console.log(`Filtering out file by exact name match: ${filePath}`);
             return false;
         }
 
         // 4. Check directories
         if (excludeConfig.directories.some(dir => normalizedPath.includes(dir))) {
-            console.log(`Filtering out file in excluded directory: ${filePath}`);
             return false;
         }
 
@@ -87,7 +83,6 @@ async function generateFilteredPatches() {
                 excludeConfig.patterns.some(pattern => originalPath.toLowerCase().includes(pattern)) ||
                 excludeConfig.exactNames.includes(originalFileNameWithoutExt) ||
                 excludeConfig.directories.some(dir => originalPath.includes(dir))) {
-                console.log(`Filtering out patch file: ${filePath}`);
                 return false;
             }
         }
@@ -98,7 +93,7 @@ async function generateFilteredPatches() {
 
     try {
         console.log('Starting patch generation with filters...');
-        await updatePatches(braveDir, patchesDir, repoPathFilter);
+        await updatePatches(braveDir, patchesDir, [], repoPathFilter);
         console.log('Successfully generated filtered patches');
     } catch (err) {
         console.error('Error generating patches:', err);
