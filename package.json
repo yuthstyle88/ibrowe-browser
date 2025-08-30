@@ -14,6 +14,12 @@
   "author": {
     "name": "iBrowe Software <support@ibrowe.com>"
   },
+  "contributors": [
+    {
+      "name": "The Brave Authors",
+      "url": "https://brave.com"
+    }
+  ],
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
     "update_patches_ibrowe": "node ./scripts/updatePatches.js",
