@@ -12,8 +12,14 @@
   },
   "license": "MPL-2.0",
   "author": {
-    "name": "Brave Software <support@brave.com>"
+    "name": "iBrowe Software <support@ibrowe.com>"
   },
+  "contributors": [
+    {
+      "name": "The Brave Authors",
+      "url": "https://brave.com"
+    }
+  ],
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
     "audit_deps": "cd src/brave && npm run audit_deps --",
@@ -45,9 +51,16 @@
     "projects": {
       "brave-core": {
         "dir": "src/brave",
-        "branch": "1.81.x",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
+        },
+        "tag": "v1.81.137"
+      },
+      "ibrowe-core": {
+        "dir": "src/ibrowe",
+        "branch": "v1.81.137",
+        "repository": {
+          "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
       }
     }
