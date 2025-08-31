@@ -57,11 +57,11 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.81.136"
+        "tag": "v1.81.137"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
-        "branch": "v1.81.136",
+        "branch": "v1.81.137",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
