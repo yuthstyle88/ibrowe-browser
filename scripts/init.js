@@ -36,7 +36,8 @@ Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}
 
 const ibroweSha = util.runGit(ibroweCoreDir, ['rev-parse', 'HEAD'])
 Log.progress(`ibrowe-core repo at ${ibroweCoreDir} is at commit ID ${ibroweSha}`)
-console.log('Running npm install in ibrowe-core...')
+
+console.log('Running npm install in brave-core...')
 let npmCommand = 'npm'
 if (process.platform === 'win32') {
   npmCommand += '.cmd'

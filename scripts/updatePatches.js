@@ -98,7 +98,15 @@ async function generateFilteredPatches() {
 
     try {
         console.log('Starting patch generation with filters...');
-        await updatePatches(braveDir, patchesDir, repoPathFilter);
+        // Explicitly pass an empty array for onlyFiles to avoid iterating a function.
+        // Provide repoPathFilter as the 4th argument per stable signature, and no pinned filenames.
+        await updatePatches(
+            braveDir,
+            patchesDir,
+            [],                 // onlyFiles: consider all modified files
+            repoPathFilter,     // repoPathFilter: exclude assets/translations/etc.
+            []                  // keepPatchFilenames: none
+        );
         console.log('Successfully generated filtered patches');
     } catch (err) {
         console.error('Error generating patches:', err);
