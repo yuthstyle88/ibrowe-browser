@@ -1,6 +1,6 @@
 {
   "name": "ibrowe",
-  "version": "1.81.137",
+  "version": "1.83.112",
   "description": "Next generation iBrowe browser for macOS, Windows, Linux, and Android",
   "homepage": "https://github.com/yuthstyle88/ibrowe-browser#readme",
   "bugs": {
@@ -47,8 +47,8 @@
     "versions": "cd src/brave && npm run versions --"
   },
   "engines": {
-    "node": ">=20.0.0 <22.0.0",
-    "npm": ">=10.0.0"
+    "node": ">=24.0.0 <25.0.0",
+    "npm": ">=11.6.1"
   },
   "config": {
     "projects": {
@@ -57,11 +57,11 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.81.137"
+        "tag": "v1.83.112"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
-        "branch": "v1.81.137",
+        "branch": "v1.83.112",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
