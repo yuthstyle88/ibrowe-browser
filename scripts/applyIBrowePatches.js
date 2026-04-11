@@ -1,9 +1,12 @@
 const path = require('path');
 const fs = require('fs-extra');
-const config = require('../src/brave/build/commands/lib/config')
+const configModule = require('../src/brave/build/commands/lib/config')
+
+const config = configModule.default || configModule
 
 async function applyIBrowePatches() {
-    const GitPatcher = require('../src/brave/build/commands/lib/gitPatcher')
+    const gitPatcherModule = require('../src/brave/build/commands/lib/gitPatcher')
+    const GitPatcher = gitPatcherModule.GitPatcher || gitPatcherModule.default || gitPatcherModule
     const chromiumDir = config.srcDir
     const braveRepoPath = path.join(chromiumDir, 'brave')
     const iBroweDir = path.join(chromiumDir, 'ibrowe')
