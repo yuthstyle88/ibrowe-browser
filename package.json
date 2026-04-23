@@ -1,6 +1,6 @@
 {
   "name": "ibrowe",
-  "version": "1.83.112",
+  "version": "1.88.138",
   "description": "Next generation iBrowe browser for macOS, Windows, Linux, and Android",
   "homepage": "https://github.com/yuthstyle88/ibrowe-browser#readme",
   "bugs": {
@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
+    "apply_iBrowe_patches": "node -e \"require('./scripts/applyIBrowePatches').applyIBrowePatches().catch(err => { console.error(err); process.exit(1) })\"",
     "update_patches_ibrowe": "node ./scripts/updatePatches.js",
     "copy_file_to_brave": "node ./scripts/copyFileToBrave.js",
     "copy_file_to_ibrowe": "node ./scripts/copyFileToiBrowe.js",
@@ -57,11 +58,11 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.83.112"
+        "tag": "v1.88.138"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
-        "branch": "v1.83.112",
+        "branch": "v1.88.138",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
