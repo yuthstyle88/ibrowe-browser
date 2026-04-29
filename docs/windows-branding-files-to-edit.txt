@@ -1,0 +1,144 @@
+Windows Branding Files to Edit for iBrowe
+
+Main files to edit for branding
+
+1. src\brave\app\brave_exe.rc
+   This is the main Windows executable resource file.
+
+   Edit this when you want to change:
+   - the main .exe icon
+   - taskbar/start menu icon resources
+   - incognito icon
+   - app/file-type icons
+   - dev/beta/canary icon variants
+
+   In this repo it currently points to files like:
+   - theme\brave\win\brave.ico
+   - theme\brave\win\brave_canary.ico
+   - theme\brave\win\app_list.ico
+   - theme\brave\win\brave_file.ico
+
+   This is the first file to change for Windows visual branding.
+
+2. src\brave\chromium_src\chrome\installer\setup\resources\setup_resources.grd
+   This controls Windows installer text resources.
+
+   Edit this when you want to change:
+   - installer messages
+   - install failure text
+   - wording shown by setup.exe
+   - localized installer-visible strings source
+
+   Example currently in the file:
+   - Please download iBrowe again.
+
+   This is the correct place for installer wording and branding text.
+
+3. src\brave\chromium_src\chrome\installer\setup\brave_behaviors.cc
+   This controls Brave-specific uninstall behavior.
+
+   Edit this when you want to change:
+   - post-uninstall survey URL
+   - uninstall follow-up behavior
+   - what happens after uninstall finishes
+
+   It currently uses:
+   - https://brave.com/uninstall-survey/?p=brave_uninstall_survey
+
+   Change this to your own URL or remove that behavior if needed.
+
+4. src\brave\build\args\branding_defaults.gni
+   This is a small but important branding config file.
+
+   Edit this when you want to change:
+   - branding path component names
+   - which branding asset path set is used internally
+
+   It currently contains:
+   - branding_path_component = "brave"
+   - branding_path_product = "brave"
+
+   If you are fully rebranding, this is one of the core config files to review.
+
+5. src\brave\chromium_src\chrome\install_static\install_modes.cc
+   This affects Windows install and update registry branding.
+
+   Edit this when you want to change:
+   - Windows registry vendor/product key names for install/update state
+   - BraveSoftware update/client paths
+
+   The file currently hardcodes paths like:
+   - Software\BraveSoftware\Update\Clients\...
+   - Software\BraveSoftware\Update\ClientState\...
+
+   If you want a clean iBrowe vendor identity in Windows, this is a key file.
+
+6. src\brave\chromium_src\chrome\install_static\user_data_dir.cc
+   This affects some branded Windows policy/path naming behavior.
+
+   Edit this when you want to change:
+   - policy-related branded path names
+   - product name used in some Windows install/user-data path handling
+
+   The file currently contains special handling for:
+   - SOFTWARE\Policies\BraveSoftware\Brave
+   - Brave-Browser
+
+   This is important if you want no leftover Brave naming in Windows.
+
+Asset/source folders to check
+
+7. Windows icon asset files referenced by brave_exe.rc
+   The .rc file is the switchboard, but you also need to replace the actual icon
+   files it points to.
+
+   Look for icon assets under the Brave theme/resource tree referenced by:
+   - theme\brave\win\brave.ico
+   - theme\brave\win\brave_development.ico
+   - theme\brave\win\brave_canary.ico
+   - theme\brave\win\brave_file.ico
+   - theme\brave\win\incognito.ico
+
+   In practice you edit:
+   - the resource map in src\brave\app\brave_exe.rc
+   - the actual .ico files in the matching theme/resource folder
+
+If you are using the ibrowe overlay workflow
+
+The root project scripts suggest branding assets/translations may be maintained
+in the overlay and copied into src\brave:
+   - package.json
+   - lib\util.js
+
+Those scripts reference paths like:
+   - src\ibrowe\src\images
+   - src\ibrowe\src\translates
+
+Depending on your workflow, the long-term place you may want to edit is:
+   - src\ibrowe\src\images
+   - src\ibrowe\src\translates
+
+Recommended edit order
+
+1. src\brave\app\brave_exe.rc
+2. Windows .ico asset files it references
+3. src\brave\chromium_src\chrome\installer\setup\resources\setup_resources.grd
+4. src\brave\chromium_src\chrome\installer\setup\brave_behaviors.cc
+5. src\brave\build\args\branding_defaults.gni
+6. src\brave\chromium_src\chrome\install_static\install_modes.cc
+7. src\brave\chromium_src\chrome\install_static\user_data_dir.cc
+
+Quick meaning of each file
+
+- brave_exe.rc -> icons/resources
+- setup_resources.grd -> installer text
+- brave_behaviors.cc -> uninstall behavior
+- branding_defaults.gni -> brand config path names
+- install_modes.cc -> Windows registry/update branding
+- user_data_dir.cc -> policy/path naming cleanup
+
+Important note
+
+If you only edit setup_resources.grd and icons, the installer will look more
+branded, but some internal Windows names may still contain Brave unless you
+also update the install_static files.
