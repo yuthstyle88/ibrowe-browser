@@ -1,0 +1,108 @@
+Mac Signing & Packaging Fixes for iBrowe Browser
+==================================================
+Applied to make iBrowe Browser build, sign, notarize, and launch successfully on macOS 26.
+
+ROOT CAUSES FIXED
+-----------------
+1. PKG signing failed — no "Developer ID Installer" cert available
+2. Privileged helper signing path was wrong (ibrowe regex didn't match actual binary name)
+3. SMPrivilegedExecutables mismatch — helper's SMAuthorizedClients didn't include com.ibrowe.Browser (POSIX 163)
+4. BraveUpdater.app signed by Brave's team ID (KL8N8XSYF4), incompatible with library-validation on our team (D8FP7GS222)
+5. com.apple.developer.associated-domains.applinks.read-write entitlement not in provisioning profile — AMFI kills process on macOS 26 (POSIX 163 / exit 137)
+6. subprocess missing import in signing.py caused validate_app warning
+
+
+FILES MODIFIED
+--------------
+
+SOURCE FILES (persist across rebuilds):
+
+1. src/brave/script/signing_helper.py
+   - Fixed regex in BraveModifyPartsForSigning() to match both com.brave.Browser
+     and com.ibrowe.Browser variants for the privileged helper path
+   - Old: channel_re = 'com.brave.Browser(.*).UpdaterPrivilegedHelper'
+   - New: channel_re = r'com\.(brave|ibrowe)\.Browser(.*)?\.'UpdaterPrivilegedHelper'
+          replacement = r'com.brave.Browser.UpdaterPrivilegedHelper'
+
+2. src/chrome/installer/mac/signing/parts.py
+   - Reverted cleanup code that removed the privileged helper binary
+   - Made privileged helper signing skip gracefully when binary is absent (WARN instead of error)
+
+3. src/chrome/installer/mac/signing/pipeline.py
+   - Added import subprocess
+   - Added _identity_in_keychain() helper function
+   - Made productbuild --sign conditional on Developer ID Installer cert being in keychain
+   - Made PKG notarization conditional on PKG being signed
+   - Removed assert dist_config.installer_identity
+
+4. src/chrome/installer/mac/signing/signing.py
+   - Added: import subprocess
+
+5. src/chrome/app/app-entitlements-chrome.plist
+   - Removed: com.apple.developer.associated-domains.applinks.read-write
+   - Reason: Not in provisioning profile; AMFI kills app on macOS 26 when entitlements
+     don't match the embedded provisioning profile
+
+6. src/out/Release_arm64/args.gn
+   - Added: enable_updater=false
+   - Reason: Disables the updater so SMPrivilegedExecutables is not added to Info.plist
+     and BraveUpdater.app is not included in the bundle
+
+7. src/ibrowe/src/patches/script-signing_helper.py.patch
+   - Updated to reflect new regex in signing_helper.py
+
+8. src/brave/patches/chrome-installer-mac-signing-pipeline.py.patch
+   - Updated to reflect all pipeline.py changes
+
+9. src/brave/patches/chrome-installer-mac-signing-parts.py.patch
+   - Updated to reflect parts.py changes
+
+
+CACHED PACKAGING FILES (mirror of source, located in build output):
+These are auto-copied by the build system but must be kept in sync manually
+if you edit the source files without rebuilding.
+
+10. src/out/Release_arm64/iBrowe Browser Packaging/signing/parts.py
+    - Mirror of source parts.py
+
+11. src/out/Release_arm64/iBrowe Browser Packaging/signing/pipeline.py
+    - Mirror of source pipeline.py
+
+12. src/out/Release_arm64/iBrowe Browser Packaging/signing/signing.py
+    - Added: import subprocess
+
+13. src/out/Release_arm64/iBrowe Browser Packaging/app-entitlements.plist
+    - Removed: com.apple.developer.associated-domains.applinks.read-write
+
+
+MANUAL OUTPUT DIRECTORY CHANGES (applied before signing, not tracked by git):
+These were removed from the compiled app bundle to fix library-validation team ID
+mismatch. With enable_updater=false they will not be present in future builds.
+
+- Deleted: src/out/Release_arm64/iBrowe Browser.app/Contents/Frameworks/
+           iBrowe Browser Framework.framework/Helpers/BraveUpdater.app
+  Reason: Signed by Brave Software team KL8N8XSYF4, conflicts with our team D8FP7GS222
+          under library-validation
+
+- Deleted: src/out/Release_arm64/iBrowe Browser.app/Contents/Library/
+           LaunchServices/com.brave.Browser.UpdaterPrivilegedHelper
+  Reason: Orphaned helper no longer needed with enable_updater=false
+
+
+REBUILD COMMAND
+---------------
+From project root (/Users/koeyl/CLionProjects/ibrowe-browser/):
+
+    npm run build -- Release --target=brave/build/mac:package --notarize
+
+Output DMG: src/out/Release_arm64/packaged/iBroweBrowser-146.1.88.138.dmg
+
+
+NOTES
+-----
+- Developer ID Installer cert is NOT available; PKG is unsigned (skipped automatically)
+- Auto-update (Sparkle / BraveUpdater) is disabled for ibrowe (enable_updater=false)
+- The provisioning profile (release.provisionprofile) expires 2043-10-14
+- Team ID: -- from .env --
+- App bundle ID: com.ibrowe.Browser
+- Version: -- based on package.json --
